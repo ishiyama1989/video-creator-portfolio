@@ -34,6 +34,7 @@ export default function ProjectDetailContent({ id }: { id: string }) {
   }
 
   const handlePlayVideo = () => {
+    console.log('Playing video:', project?.videoUrl);
     setIsVideoPlaying(true);
   };
 
@@ -71,8 +72,13 @@ export default function ProjectDetailContent({ id }: { id: string }) {
                 controls
                 autoPlay
                 poster={project.thumbnailUrl}
+                onError={(e) => {
+                  console.error('Video load error:', e);
+                  setIsVideoPlaying(false);
+                }}
               >
                 <source src={project.videoUrl} type="video/mp4" />
+                <p className="text-white p-4">お使いのブラウザは動画の再生をサポートしていません。</p>
               </video>
             ) : (
               <div 
