@@ -134,12 +134,6 @@ export default function Home() {
             映像制作のご相談・お見積もりは、お気軽にお問い合わせください。
           </p>
           
-          <div className="max-w-md mx-auto mb-8 sm:mb-12">
-            <div className="bg-gray-900 p-6 sm:p-8 rounded-lg text-center">
-              <h3 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4">メール</h3>
-              <p className="text-primary-400 text-sm sm:text-base break-all">{profile.contact.email}</p>
-            </div>
-          </div>
           
           <Link 
             href="/contact"
