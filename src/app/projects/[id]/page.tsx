@@ -1,5 +1,3 @@
-'use client';
-
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Play, Calendar, User, Tag, ExternalLink } from 'lucide-react';
@@ -17,6 +15,8 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
   
   return <ProjectDetailContent id={id} />;
 }
+
+'use client';
 
 function ProjectDetailContent({ id }: { id: string }) {
   const [project, setProject] = useState<Project | null>(null);
