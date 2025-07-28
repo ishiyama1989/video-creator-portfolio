@@ -19,21 +19,21 @@ export default function ContactFormComponent() {
   const [errorMessage, setErrorMessage] = useState('');
 
   const projectTypes = [
-    'コマーシャル動画',
+    'ドローン空撮',
     'ミュージックビデオ',
-    'コーポレート動画',
     'イベント映像',
     'ウェディング動画',
     'プロモーション動画',
+    'LP作成',
     'その他',
   ];
 
   const budgetRanges = [
-    '〜50万円',
-    '50万円〜100万円',
-    '100万円〜300万円',
-    '300万円〜500万円',
-    '500万円以上',
+    '〜1万円',
+    '〜3万円',
+    '〜5万円',
+    '〜10万円',
+    '〜30万円',
     '相談したい',
   ];
 
@@ -264,10 +264,6 @@ export default function ContactFormComponent() {
           <li className="flex items-start gap-2">
             <span className="w-1.5 h-1.5 bg-primary-400 rounded-full mt-2 flex-shrink-0" />
             秘密保持契約（NDA）の締結も可能です
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="w-1.5 h-1.5 bg-primary-400 rounded-full mt-2 flex-shrink-0" />
-            急ぎの案件についてはお電話でもご相談いただけます
           </li>
         </ul>
       </div>

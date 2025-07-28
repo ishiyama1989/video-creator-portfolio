@@ -72,7 +72,6 @@ export const profile: Profile = {
   ],
   contact: {
     email: 'contact@example.com',
-    phone: '090-1234-5678',
     social: [
       { platform: 'YouTube', url: 'https://youtube.com/@example', icon: 'youtube' },
       { platform: 'Instagram', url: 'https://instagram.com/example', icon: 'instagram' },
