@@ -109,7 +109,7 @@ export default function HeroSection({
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
             onClick={toggleMute}
-            className="absolute bottom-20 sm:bottom-24 right-4 sm:right-6 z-20 bg-black/50 text-white p-2 sm:p-3 rounded-full hover:bg-black/70 transition-all duration-300"
+            className="absolute bottom-4 sm:bottom-6 right-4 sm:right-6 z-20 bg-black/50 text-white p-2 sm:p-3 rounded-full hover:bg-black/70 transition-all duration-300"
             title={isMuted ? '音声をオンにする' : '音声をオフにする'}
           >
             {isMuted ? <VolumeX className="w-5 h-5 sm:w-6 sm:h-6" /> : <Volume2 className="w-5 h-5 sm:w-6 sm:h-6" />}
