@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Play, ChevronDown } from 'lucide-react';
+import { Play, ChevronDown, Volume2, VolumeX } from 'lucide-react';
 import { useState } from 'react';
 
 interface HeroSectionProps {
@@ -18,9 +18,14 @@ export default function HeroSection({
   posterUrl = 'https://images.unsplash.com/photo-1533562618677-54cc0e6f8a46?w=1200'
 }: HeroSectionProps) {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
 
   const handlePlayVideo = () => {
     setIsVideoPlaying(true);
+  };
+
+  const toggleMute = () => {
+    setIsMuted(!isMuted);
   };
 
   const scrollToProjects = () => {
@@ -38,7 +43,7 @@ export default function HeroSection({
           <video
             className="w-full h-full object-cover"
             autoPlay
-            muted
+            muted={isMuted}
             loop
             playsInline
           >
@@ -96,6 +101,20 @@ export default function HeroSection({
             <span className="font-semibold">作品を見る</span>
           </button>
         </motion.div>
+
+        {/* Mute Control Button */}
+        {isVideoPlaying && (
+          <motion.button
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            onClick={toggleMute}
+            className="absolute top-24 right-6 z-20 bg-black/50 text-white p-3 rounded-full hover:bg-black/70 transition-all duration-300"
+            title={isMuted ? '音声をオンにする' : '音声をオフにする'}
+          >
+            {isMuted ? <VolumeX className="w-6 h-6" /> : <Volume2 className="w-6 h-6" />}
+          </motion.button>
+        )}
       </div>
 
       {/* Scroll indicator */}
