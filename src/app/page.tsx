@@ -13,7 +13,7 @@ export default function Home() {
         <HeroSection 
           title="映像で物語を紡ぐ"
           subtitle="あなたの想いを映像に込めて、心に響くストーリーをお届けします"
-          videoUrl="/videos/河口湖2.mp4"
+          videoUrl="/videos/kawaguchiko.mp4"
         />
       </section>
 
