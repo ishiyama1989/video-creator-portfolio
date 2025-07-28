@@ -29,7 +29,7 @@ export interface Profile {
     phone?: string;
     social: SocialLink[];
   };
-  avatarUrl?: string;
+  avatarUrl: string;
 }
 
 export interface Experience {

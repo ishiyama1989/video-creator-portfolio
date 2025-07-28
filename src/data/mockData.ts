@@ -82,5 +82,5 @@ export const profile: Profile = {
       { platform: 'Twitter', url: 'https://twitter.com/example', icon: 'twitter' },
     ],
   },
-  avatarUrl: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400',
+  avatarUrl: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400' as string,
 };
