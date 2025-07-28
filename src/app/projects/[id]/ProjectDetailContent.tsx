@@ -35,6 +35,7 @@ export default function ProjectDetailContent({ id }: { id: string }) {
 
   const handlePlayVideo = () => {
     console.log('Playing video:', project?.videoUrl);
+    console.log('Video file path check:', `/videos/${encodeURIComponent('河口湖2.mp4')}`);
     setIsVideoPlaying(true);
   };
 
@@ -74,11 +75,15 @@ export default function ProjectDetailContent({ id }: { id: string }) {
                 poster={project.thumbnailUrl}
                 onError={(e) => {
                   console.error('Video load error:', e);
+                  console.error('Failed to load video:', project.videoUrl);
                   setIsVideoPlaying(false);
                 }}
+                onLoadStart={() => console.log('Video load started')}
+                onLoadedData={() => console.log('Video data loaded')}
+                onCanPlay={() => console.log('Video can play')}
               >
                 <source src={project.videoUrl} type="video/mp4" />
-                <p className="text-white p-4">お使いのブラウザは動画の再生をサポートしていません。</p>
+                動画を読み込めませんでした。ファイルが存在しない可能性があります。
               </video>
             ) : (
               <div 
