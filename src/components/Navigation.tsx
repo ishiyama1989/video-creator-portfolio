@@ -55,12 +55,12 @@ export default function Navigation() {
             : 'bg-transparent'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 py-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link
               href="/"
-              className="text-2xl font-bold text-white hover:text-primary-400 transition-colors duration-300"
+              className="text-lg sm:text-xl md:text-2xl font-bold text-white hover:text-primary-400 transition-colors duration-300"
             >
               VideoCreator
             </Link>
@@ -98,9 +98,9 @@ export default function Navigation() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
             transition={{ duration: 0.3 }}
-            className="fixed top-0 right-0 bottom-0 w-80 bg-gray-900/98 backdrop-blur-md z-40 md:hidden"
+            className="fixed top-0 right-0 bottom-0 w-72 sm:w-80 bg-gray-900/98 backdrop-blur-md z-40 md:hidden"
           >
-            <div className="flex flex-col h-full pt-20 px-6">
+            <div className="flex flex-col h-full pt-16 sm:pt-20 px-4 sm:px-6">
               <div className="flex-1">
                 {navItems.map((item, index) => (
                   <motion.button
@@ -109,10 +109,10 @@ export default function Navigation() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
                     onClick={() => handleNavClick(item.href)}
-                    className="flex items-center gap-4 w-full text-left py-6 text-gray-300 hover:text-white border-b border-gray-800 transition-colors duration-300"
+                    className="flex items-center gap-3 sm:gap-4 w-full text-left py-4 sm:py-6 text-gray-300 hover:text-white border-b border-gray-800 transition-colors duration-300"
                   >
-                    <item.icon className="w-5 h-5" />
-                    <span className="text-lg font-medium">{item.name}</span>
+                    <item.icon className="w-4 h-4 sm:w-5 sm:h-5" />
+                    <span className="text-base sm:text-lg font-medium">{item.name}</span>
                   </motion.button>
                 ))}
               </div>

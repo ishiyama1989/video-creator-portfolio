@@ -116,7 +116,7 @@ export default function ContactFormComponent() {
         </motion.div>
       )}
 
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
         {/* Name Field */}
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
@@ -229,7 +229,7 @@ export default function ContactFormComponent() {
           disabled={isSubmitting}
           whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
           whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
-          className={`w-full py-4 px-6 rounded-lg font-semibold text-white transition-all duration-300 flex items-center justify-center gap-3 ${
+          className={`w-full py-3 sm:py-4 px-4 sm:px-6 rounded-lg font-semibold text-white transition-all duration-300 flex items-center justify-center gap-2 sm:gap-3 text-sm sm:text-base ${
             isSubmitting
               ? 'bg-gray-600 cursor-not-allowed'
               : 'bg-primary-500 hover:bg-primary-600 shadow-lg hover:shadow-xl'
