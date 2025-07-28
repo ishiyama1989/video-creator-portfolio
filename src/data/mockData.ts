@@ -1,7 +1,7 @@
 import { Project, Category, Profile } from '@/types';
 
 export const categories: Category[] = [
-  { id: '1', name: 'コマーシャル', slug: 'commercial', description: 'TVCMやWeb広告動画' },
+  { id: '1', name: 'PR動画', slug: 'pr-video', description: 'プロモーション・宣伝動画' },
   { id: '2', name: 'ミュージックビデオ', slug: 'music-video', description: 'アーティストのMV制作' },
   { id: '3', name: 'コーポレート', slug: 'corporate', description: '企業紹介・採用動画' },
   { id: '4', name: 'イベント', slug: 'event', description: 'イベント記録・ライブ映像' },
