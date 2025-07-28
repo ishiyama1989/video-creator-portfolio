@@ -12,7 +12,7 @@ export const projects: Project[] = [
     id: '1',
     title: 'ブランドCM「未来への扉」',
     description: '新しい時代を切り開く企業のブランドイメージを表現したコマーシャル動画。',
-    videoUrl: '/videos/河口湖2.mp4',
+    videoUrl: '/videos/motomochi.mp4',
     thumbnailUrl: 'https://images.unsplash.com/photo-1533562618677-54cc0e6f8a46?w=800',
     category: categories[0],
     tags: ['ブランディング', 'コマーシャル', '4K'],
