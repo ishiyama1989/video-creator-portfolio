@@ -101,7 +101,9 @@ export default function Home() {
             </div>
             
             <div className="order-1 lg:order-2">
-              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-center lg:text-left">{profile.name}</h3>
+              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-center lg:text-left">
+                石田麻也<span className="text-base sm:text-lg font-normal text-gray-300 ml-2">（いしだ　まや）</span>
+              </h3>
               <p className="text-lg sm:text-xl text-primary-400 mb-4 sm:mb-6 text-center lg:text-left">{profile.title}</p>
               <p className="text-gray-300 leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base">{profile.bio}</p>
               

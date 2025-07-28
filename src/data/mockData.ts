@@ -10,7 +10,7 @@ export const categories: Category[] = [
 export const projects: Project[] = [
   {
     id: '1',
-    title: 'ブランドCM「未来への扉」',
+    title: '母との思い出の味「絶品おはぎ」',
     description: '新しい時代を切り開く企業のブランドイメージを表現したコマーシャル動画。',
     videoUrl: '/videos/motomochi.mp4',
     thumbnailUrl: '/videos/motomochi.jpg',
