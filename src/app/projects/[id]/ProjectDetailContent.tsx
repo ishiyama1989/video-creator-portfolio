@@ -57,7 +57,7 @@ export default function ProjectDetailContent({ id }: { id: string }) {
             className="flex items-center gap-3 text-white hover:text-primary-400 transition-colors w-fit"
           >
             <ArrowLeft className="w-5 h-5" />
-            <span>ポートフォリオに戻る</span>
+            <span>ホームに戻る</span>
           </Link>
         </div>
       </motion.nav>
