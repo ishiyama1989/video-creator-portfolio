@@ -36,8 +36,7 @@ export default function Home() {
                   <Link
                     key={project.id}
                     href={`/projects/${project.id}`}
-                    className="group relative overflow-hidden rounded-lg bg-gray-900 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 block flex-shrink-0"
-                    style={{width: '300px'}}
+                    className="group relative overflow-hidden rounded-lg bg-gray-900 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 block flex-shrink-0 w-80 sm:w-96 lg:w-[400px]"
                   >
                     <div className="aspect-video relative overflow-hidden">
                       <Image
