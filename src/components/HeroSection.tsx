@@ -46,6 +46,11 @@ export default function HeroSection({
             muted={isMuted}
             loop
             playsInline
+            ref={(video) => {
+              if (video) {
+                video.volume = 0.3; // デフォルト音量を30%に設定
+              }
+            }}
           >
             <source src={videoUrl} type="video/mp4" />
           </video>
