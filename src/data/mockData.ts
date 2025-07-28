@@ -10,7 +10,7 @@ export const categories: Category[] = [
 export const projects: Project[] = [
   {
     id: '1',
-    title: '母との思い出の味「絶品おはぎ」',
+    title: '母から受け継いだ"おもてなしの心"「おはぎ屋　もともち」',
     description: '新しい時代を切り開く企業のブランドイメージを表現したコマーシャル動画。',
     videoUrl: '/videos/motomochi.mp4',
     thumbnailUrl: '/videos/motomochi.jpg',
