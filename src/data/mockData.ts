@@ -43,6 +43,29 @@ export const projects: Project[] = [
     client: 'Example Corporation',
     year: 2023,
   },
+  {
+    id: '4',
+    title: 'FPVドローン空撮「富士山の絶景」',
+    description: 'FPVドローンによる迫力ある富士山空撮映像。\n臨場感溢れる映像美をお楽しみください。',
+    videoUrl: '/videos/kawaguchiko.mp4',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1605197788044-5a67c9c1fb4e?w=800',
+    category: categories[3],
+    tags: ['ドローン', '空撮', '富士山'],
+    client: '観光協会',
+    year: 2024,
+    featured: true,
+  },
+  {
+    id: '5',
+    title: 'ミュージックビデオ「夢の向こう側」',
+    description: 'アーティストの想いを映像で表現したMV作品。\n感動的なストーリーと美しい映像が融合。',
+    videoUrl: '/videos/kawaguchiko.mp4',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800',
+    category: categories[1],
+    tags: ['MV', '音楽', 'アーティスト'],
+    client: 'レコード会社',
+    year: 2024,
+  },
 ];
 
 export const profile: Profile = {

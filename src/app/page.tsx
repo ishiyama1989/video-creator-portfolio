@@ -28,54 +28,60 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {projects.map((project) => (
-              <Link
-                key={project.id}
-                href={`/projects/${project.id}`}
-                className="group relative overflow-hidden rounded-lg bg-gray-900 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 block"
-              >
-                <div className="aspect-video relative overflow-hidden">
-                  <Image
-                    src={project.thumbnailUrl}
-                    alt={project.title}
-                    width={800}
-                    height={450}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <button className="bg-primary-500 text-white rounded-full p-4 hover:bg-primary-600 transition-colors">
-                      <svg className="w-8 h-8 ml-1" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-                
-                <div className="p-4 sm:p-6">
-                  <div className="flex items-center gap-2 mb-2 sm:mb-3">
-                    <span className="px-2 sm:px-3 py-1 bg-primary-500/20 text-primary-400 text-xs sm:text-sm rounded-full">
-                      {project.category.name}
-                    </span>
-                    <span className="text-gray-400 text-xs sm:text-sm">{project.year}</span>
-                  </div>
-                  
-                  <h3 className="text-lg sm:text-xl font-semibold text-white mb-2 group-hover:text-primary-400 transition-colors line-clamp-2">
-                    {project.title}
-                  </h3>
-                  
-                  <p className="text-gray-300 text-sm mb-3 sm:mb-4 line-clamp-3 whitespace-pre-line">
-                    {project.description}
-                  </p>
-                  
-                  {project.client && (
-                    <p className="text-gray-400 text-xs sm:text-sm">
-                      クライアント: {project.client}
-                    </p>
-                  )}
-                </div>
-              </Link>
-            ))}
+          {/* スライダー表示 */}
+          <div className="relative">
+            <div className="overflow-x-auto scrollbar-hide">
+              <div className="flex gap-6 sm:gap-8 pb-4" style={{width: 'fit-content'}}>
+                {projects.map((project) => (
+                  <Link
+                    key={project.id}
+                    href={`/projects/${project.id}`}
+                    className="group relative overflow-hidden rounded-lg bg-gray-900 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 block flex-shrink-0"
+                    style={{width: '300px'}}
+                  >
+                    <div className="aspect-video relative overflow-hidden">
+                      <Image
+                        src={project.thumbnailUrl}
+                        alt={project.title}
+                        width={800}
+                        height={450}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <button className="bg-primary-500 text-white rounded-full p-4 hover:bg-primary-600 transition-colors">
+                          <svg className="w-8 h-8 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                    
+                    <div className="p-4 sm:p-6">
+                      <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                        <span className="px-2 sm:px-3 py-1 bg-primary-500/20 text-primary-400 text-xs sm:text-sm rounded-full">
+                          {project.category.name}
+                        </span>
+                        <span className="text-gray-400 text-xs sm:text-sm">{project.year}</span>
+                      </div>
+                      
+                      <h3 className="text-lg sm:text-xl font-semibold text-white mb-2 group-hover:text-primary-400 transition-colors line-clamp-2">
+                        {project.title}
+                      </h3>
+                      
+                      <p className="text-gray-300 text-sm mb-3 sm:mb-4 line-clamp-3 whitespace-pre-line">
+                        {project.description}
+                      </p>
+                      
+                      {project.client && (
+                        <p className="text-gray-400 text-xs sm:text-sm">
+                          クライアント: {project.client}
+                        </p>
+                      )}
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
