@@ -46,7 +46,7 @@ export const projects: Project[] = [
 ];
 
 export const profile: Profile = {
-  name: '石田麻也',
+  name: '石田麻也（いしだ　まや）',
   title: '映像クリエイター',
   bio: '映像制作を通じて、地域の魅力や企業の想いを伝える動画コンテンツを制作しています。FPVドローンによる迫力ある空撮からYouTube動画編集まで、幅広い映像制作に対応いたします。',
   skills: [
