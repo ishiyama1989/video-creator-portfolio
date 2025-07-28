@@ -46,18 +46,15 @@ export const projects: Project[] = [
 ];
 
 export const profile: Profile = {
-  name: '山田太郎',
+  name: '石田麻也',
   title: '映像クリエイター',
-  bio: '映像制作歴10年。企業のブランディング動画からアーティストのMVまで幅広く手がける。ストーリーテリングを重視した映像制作で、クライアントの想いを形にします。',
+  bio: '映像制作を通じて、地域の魅力や企業の想いを伝える動画コンテンツを制作しています。FPVドローンによる迫力ある空撮からYouTube動画編集まで、幅広い映像制作に対応いたします。',
   skills: [
-    'Adobe Premiere Pro',
-    'Adobe After Effects',
-    'DaVinci Resolve',
-    'Cinema 4D',
     'Final Cut Pro',
-    'ドローン撮影',
-    '4K/8K撮影',
-    'カラーグレーディング',
+    'FPVドローン',
+    'Vivecoding',
+    'LP作成',
+    'YouTube動画編集',
   ],
   experience: [
     {
