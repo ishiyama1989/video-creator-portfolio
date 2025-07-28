@@ -9,17 +9,23 @@ import { projects } from '@/data/mockData';
 import { Project } from '@/types';
 
 interface ProjectDetailPageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
-export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
+export default async function ProjectDetailPage({ params }: ProjectDetailPageProps) {
+  const { id } = await params;
+  
+  return <ProjectDetailContent id={id} />;
+}
+
+function ProjectDetailContent({ id }: { id: string }) {
   const [project, setProject] = useState<Project | null>(null);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
   useEffect(() => {
-    const foundProject = projects.find(p => p.id === params.id);
+    const foundProject = projects.find(p => p.id === id);
     setProject(foundProject || null);
-  }, [params.id]);
+  }, [id]);
 
   if (!project) {
     return (
