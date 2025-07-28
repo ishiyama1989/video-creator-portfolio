@@ -137,7 +137,7 @@ export default function Home() {
           
           <Link 
             href="/contact"
-            className="inline-block bg-primary-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:bg-primary-600 transition-colors duration-300 transform hover:scale-105 font-semibold text-sm sm:text-base"
+            className="inline-block bg-primary-500 text-white px-8 sm:px-12 py-4 sm:py-6 rounded-full hover:bg-primary-600 transition-colors duration-300 transform hover:scale-105 font-semibold text-base sm:text-lg"
           >
             お問い合わせフォームへ
           </Link>

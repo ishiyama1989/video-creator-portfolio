@@ -10,7 +10,7 @@ export const categories: Category[] = [
 export const projects: Project[] = [
   {
     id: '1',
-    title: '母から受け継いだ"おもてなしの心',
+    title: '母から受け継いだ"おもてなしの心"',
     description: '富士河口湖町の名物グルメを紹介するプロモーション動画。',
     videoUrl: '/videos/motomochi.mp4',
     thumbnailUrl: '/videos/motomochi.jpg',
