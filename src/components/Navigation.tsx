@@ -2,14 +2,13 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Play, User, Mail, FileText } from 'lucide-react';
+import { Menu, X, Play, User, Mail } from 'lucide-react';
 import Link from 'next/link';
 
 const navItems = [
   { name: 'ホーム', href: '#home', icon: Play },
   { name: '作品', href: '#projects', icon: Play },
   { name: 'プロフィール', href: '#profile', icon: User },
-  { name: 'ブログ', href: '#blog', icon: FileText },
   { name: 'お問い合わせ', href: '/contact', icon: Mail },
 ];
 

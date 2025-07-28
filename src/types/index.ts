@@ -45,16 +45,6 @@ export interface SocialLink {
   icon: string;
 }
 
-export interface BlogPost {
-  id: string;
-  title: string;
-  slug: string;
-  excerpt: string;
-  content: string;
-  publishedAt: string;
-  thumbnailUrl?: string;
-  tags: string[];
-}
 
 export interface ContactForm {
   name: string;
