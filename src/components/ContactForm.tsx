@@ -19,11 +19,11 @@ export default function ContactFormComponent() {
   const [errorMessage, setErrorMessage] = useState('');
 
   const projectTypes = [
-    'ドローン空撮',
-    'ミュージックビデオ',
-    'イベント映像',
-    'ウェディング動画',
-    'プロモーション動画',
+    'ドローン空撮撮影・編集',
+    'ミュージックビデオ撮影・編集',
+    'イベント撮影・編集',
+    'ウェディング動画撮影・編集',
+    'プロモーション動画撮影・編集',
     'LP作成',
     'その他',
   ];

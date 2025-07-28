@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowLeft, Mail, Phone, MapPin, Clock } from 'lucide-react';
+import { ArrowLeft, Mail, Phone, MapPin } from 'lucide-react';
 import ContactForm from '@/components/ContactForm';
 import { profile } from '@/data/mockData';
 
@@ -91,18 +91,6 @@ export default function ContactPage() {
                       </div>
                     </div>
 
-                    <div className="flex items-start gap-4">
-                      <Clock className="w-6 h-6 text-primary-400 mt-1 flex-shrink-0" />
-                      <div>
-                        <h4 className="text-white font-medium mb-1">営業時間</h4>
-                        <p className="text-gray-300 text-sm">
-                          平日 9:00-18:00
-                        </p>
-                        <p className="text-gray-400 text-xs mt-1">
-                          土日祝は事前予約にて対応
-                        </p>
-                      </div>
-                    </div>
                   </div>
 
                   {/* Social Links */}
