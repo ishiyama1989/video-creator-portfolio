@@ -131,7 +131,7 @@ export default function ProjectDetailContent({ id }: { id: string }) {
                   {project.title}
                 </h1>
 
-                <p className="text-xl text-gray-300 leading-relaxed mb-8">
+                <p className="text-xl text-gray-300 leading-relaxed mb-8 whitespace-pre-line">
                   {project.description}
                 </p>
 

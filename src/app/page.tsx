@@ -65,7 +65,7 @@ export default function Home() {
                     {project.title}
                   </h3>
                   
-                  <p className="text-gray-300 text-sm mb-3 sm:mb-4 line-clamp-3">
+                  <p className="text-gray-300 text-sm mb-3 sm:mb-4 line-clamp-3 whitespace-pre-line">
                     {project.description}
                   </p>
                   
