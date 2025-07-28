@@ -22,7 +22,7 @@ export const projects: Project[] = [
   },
   {
     id: '2',
-    title: '日本一硬いうどん「吉田のうどん」',
+    title: '日本一硬い「吉田のうどん」',
     description: '富士吉田市の名物グルメを紹介するプロモーション動画。',
     videoUrl: '/videos/yoshidaudon.mp4',
     thumbnailUrl: '/videos/yoshidaudon.jpg',

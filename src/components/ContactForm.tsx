@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, CheckCircle, AlertCircle, User, Mail, MessageSquare, DollarSign } from 'lucide-react';
+import { Send, CheckCircle, AlertCircle, User, Mail, MessageSquare } from 'lucide-react';
 import { ContactForm } from '@/types';
 
 export default function ContactFormComponent() {
@@ -184,23 +184,20 @@ export default function ContactFormComponent() {
           <label htmlFor="budget" className="block text-sm font-medium text-gray-300 mb-2">
             ご予算
           </label>
-          <div className="relative">
-            <DollarSign className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
-            <select
-              id="budget"
-              name="budget"
-              value={formData.budget}
-              onChange={handleInputChange}
-              className="w-full pl-10 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
-            >
+          <select
+            id="budget"
+            name="budget"
+            value={formData.budget}
+            onChange={handleInputChange}
+            className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+          >
               <option value="">選択してください（任意）</option>
               {budgetRanges.map((range) => (
                 <option key={range} value={range}>
                   {range}
                 </option>
               ))}
-            </select>
-          </div>
+          </select>
         </div>
 
         {/* Message Field */}
