@@ -2,6 +2,7 @@ import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
 import { profile, projects } from '@/data/mockData';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Home() {
   return (
@@ -28,16 +29,18 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
+            {projects.map((project) => (
               <Link
                 key={project.id}
                 href={`/projects/${project.id}`}
                 className="group relative overflow-hidden rounded-lg bg-gray-900 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 block"
               >
                 <div className="aspect-video relative overflow-hidden">
-                  <img
+                  <Image
                     src={project.thumbnailUrl}
                     alt={project.title}
+                    width={800}
+                    height={450}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -87,9 +90,11 @@ export default function Home() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left">
-              <img
+              <Image
                 src={profile.avatarUrl}
                 alt={profile.name}
+                width={192}
+                height={192}
                 className="w-48 h-48 rounded-full mx-auto lg:mx-0 mb-8 object-cover shadow-lg"
               />
             </div>

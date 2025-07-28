@@ -76,7 +76,7 @@ export default function ContactFormComponent() {
         setSubmitStatus('error');
         setErrorMessage(errorData.message || 'メッセージの送信に失敗しました。');
       }
-    } catch (error) {
+    } catch {
       setSubmitStatus('error');
       setErrorMessage('ネットワークエラーが発生しました。後でもう一度お試しください。');
     } finally {

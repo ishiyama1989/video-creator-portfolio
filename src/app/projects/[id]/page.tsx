@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Play, Calendar, User, Tag, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { projects } from '@/data/mockData';
 import { Project } from '@/types';
 
@@ -228,9 +229,11 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
                       className="group block bg-gray-900 rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:scale-105"
                     >
                       <div className="aspect-video relative overflow-hidden">
-                        <img
+                        <Image
                           src={relatedProject.thumbnailUrl}
                           alt={relatedProject.title}
+                          width={400}
+                          height={225}
                           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                         />
                         <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
