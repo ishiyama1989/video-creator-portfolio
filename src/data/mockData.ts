@@ -1,7 +1,7 @@
 import { Project, Category, Profile } from '@/types';
 
 export const categories: Category[] = [
-  { id: '1', name: 'PR動画', slug: 'pr-video', description: 'プロモーション・宣伝動画' },
+  { id: '1', name: 'コマーシャル', slug: 'commercial', description: 'TVCMやWeb広告動画' },
   { id: '2', name: 'ミュージックビデオ', slug: 'music-video', description: 'アーティストのMV制作' },
   { id: '3', name: 'コーポレート', slug: 'corporate', description: '企業紹介・採用動画' },
   { id: '4', name: 'イベント', slug: 'event', description: 'イベント記録・ライブ映像' },
@@ -11,7 +11,7 @@ export const projects: Project[] = [
   {
     id: '1',
     title: '母から受け継いだ"おもてなしの心"',
-    description: '富士河口湖町の名物グルメを紹介するプロモーション動画。',
+    description: '環富士山名物グルメグランプリ2022 金賞受賞作品 富士河口湖町の名物グルメを紹介するプロモーション動画。',
     videoUrl: '/videos/motomochi.mp4',
     thumbnailUrl: '/videos/motomochi.jpg',
     category: categories[0],
@@ -23,7 +23,7 @@ export const projects: Project[] = [
   {
     id: '2',
     title: '日本一硬い「吉田のうどん」',
-    description: '富士吉田市の名物グルメを紹介するプロモーション動画。',
+    description: '環富士山名物グルメグランプリ2023 4位入賞作品 富士吉田市の名物グルメを紹介するプロモーション動画。',
     videoUrl: '/videos/yoshidaudon.mp4',
     thumbnailUrl: '/videos/yoshidaudon.jpg',
     category: categories[0],
