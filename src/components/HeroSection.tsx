@@ -1,31 +1,44 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Play, ChevronDown, Volume2, VolumeX } from 'lucide-react';
-import { useState } from 'react';
+import { ChevronDown, Volume2, VolumeX } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 
 interface HeroSectionProps {
   title: string;
   subtitle: string;
   videoUrl?: string;
-  posterUrl?: string;
 }
 
 export default function HeroSection({ 
   title, 
   subtitle, 
-  videoUrl = 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-  posterUrl = 'https://images.unsplash.com/photo-1533562618677-54cc0e6f8a46?w=1200'
+  videoUrl = 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
 }: HeroSectionProps) {
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
-  const [isMuted, setIsMuted] = useState(false);
+  // ブラウザは「音ありの自動再生」を禁止しているため、最初は消音で再生する
+  const [isMuted, setIsMuted] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
-  const handlePlayVideo = () => {
-    setIsVideoPlaying(true);
-  };
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = true;
+    video.volume = 0.3; // 音声オン時の音量を30%に設定
+    video.play().catch(() => {
+      // 省電力モードなどで自動再生できない場合は何もしない
+    });
+  }, []);
 
   const toggleMute = () => {
-    setIsMuted(!isMuted);
+    const video = videoRef.current;
+    const nextMuted = !isMuted;
+    if (video) {
+      video.muted = nextMuted;
+      if (!nextMuted) {
+        video.play().catch(() => {});
+      }
+    }
+    setIsMuted(nextMuted);
   };
 
   const scrollToProjects = () => {
@@ -37,29 +50,19 @@ export default function HeroSection({
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Video or Image */}
+      {/* Background Video */}
       <div className="absolute inset-0 z-0">
-        {isVideoPlaying ? (
-          <video
-            className="w-full h-full object-cover"
-            autoPlay
-            muted={isMuted}
-            loop
-            playsInline
-            ref={(video) => {
-              if (video) {
-                video.volume = 0.3; // デフォルト音量を30%に設定
-              }
-            }}
-          >
-            <source src={videoUrl} type="video/mp4" />
-          </video>
-        ) : (
-          <div 
-            className="w-full h-full bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url(${posterUrl})` }}
-          />
-        )}
+        <video
+          ref={videoRef}
+          className="w-full h-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+        >
+          <source src={videoUrl} type="video/mp4" />
+        </video>
         <div className="video-overlay" />
       </div>
 
@@ -89,37 +92,25 @@ export default function HeroSection({
           transition={{ duration: 0.8, delay: 0.6 }}
           className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center"
         >
-          {!isVideoPlaying && (
-            <button
-              onClick={handlePlayVideo}
-              className="w-full sm:w-auto flex items-center justify-center gap-2 sm:gap-3 bg-white text-gray-900 px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg text-sm sm:text-base"
-            >
-              <Play className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span className="font-semibold">デモリールを再生</span>
-            </button>
-          )}
-          
           <button
             onClick={scrollToProjects}
-            className="w-full sm:w-auto flex items-center justify-center gap-2 sm:gap-3 border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:bg-white hover:text-gray-900 transition-all duration-300 transform hover:scale-105 text-sm sm:text-base"
+            className="w-full sm:w-auto flex items-center justify-center gap-2 sm:gap-3 bg-white text-gray-900 px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg text-sm sm:text-base"
           >
             <span className="font-semibold">作品を見る</span>
           </button>
         </motion.div>
 
         {/* Mute Control Button */}
-        {isVideoPlaying && (
-          <motion.button
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            onClick={toggleMute}
-            className="absolute bottom-4 sm:bottom-6 right-4 sm:right-6 z-20 bg-black/50 text-white p-2 sm:p-3 rounded-full hover:bg-black/70 transition-all duration-300"
-            title={isMuted ? '音声をオンにする' : '音声をオフにする'}
-          >
-            {isMuted ? <VolumeX className="w-5 h-5 sm:w-6 sm:h-6" /> : <Volume2 className="w-5 h-5 sm:w-6 sm:h-6" />}
-          </motion.button>
-        )}
+        <motion.button
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          onClick={toggleMute}
+          className="absolute bottom-4 sm:bottom-6 right-4 sm:right-6 z-20 bg-black/50 text-white p-2 sm:p-3 rounded-full hover:bg-black/70 transition-all duration-300"
+          title={isMuted ? '音声をオンにする' : '音声をオフにする'}
+        >
+          {isMuted ? <VolumeX className="w-5 h-5 sm:w-6 sm:h-6" /> : <Volume2 className="w-5 h-5 sm:w-6 sm:h-6" />}
+        </motion.button>
       </div>
 
       {/* Scroll indicator */}

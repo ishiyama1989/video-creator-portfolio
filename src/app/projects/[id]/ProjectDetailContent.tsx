@@ -7,6 +7,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { projects } from '@/data/mockData';
 import { Project } from '@/types';
+import { linkifyText } from '@/utils/linkifyText';
 
 export default function ProjectDetailContent({ id }: { id: string }) {
   const [project, setProject] = useState<Project | null>(null);
@@ -40,7 +41,9 @@ export default function ProjectDetailContent({ id }: { id: string }) {
   };
 
   const relatedProjects = projects.filter(p => 
-    p.id !== project.id && p.category.id === project.category.id
+    p.id !== project.id && 
+    p.category?.id === project.category?.id &&
+    p.category && project.category
   ).slice(0, 3);
 
   return (
@@ -68,23 +71,34 @@ export default function ProjectDetailContent({ id }: { id: string }) {
         <section className="relative">
           <div className="aspect-video max-w-6xl mx-auto">
             {isVideoPlaying ? (
-              <video
-                className="w-full h-full object-cover rounded-lg"
-                controls
-                autoPlay
-                poster={project.thumbnailUrl}
-                onError={(e) => {
-                  console.error('Video load error:', e);
-                  console.error('Failed to load video:', project.videoUrl);
-                  setIsVideoPlaying(false);
-                }}
-                onLoadStart={() => console.log('Video load started')}
-                onLoadedData={() => console.log('Video data loaded')}
-                onCanPlay={() => console.log('Video can play')}
-              >
-                <source src={project.videoUrl} type="video/mp4" />
-                動画を読み込めませんでした。ファイルが存在しない可能性があります。
-              </video>
+              project.youtubeId ? (
+                <iframe
+                  className="w-full h-full rounded-lg"
+                  src={`https://www.youtube.com/embed/${project.youtubeId}?autoplay=1`}
+                  title={project.title}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              ) : (
+                <video
+                  className="w-full h-full object-cover rounded-lg"
+                  controls
+                  autoPlay
+                  poster={project.thumbnailUrl}
+                  onError={(e) => {
+                    console.error('Video load error:', e);
+                    console.error('Failed to load video:', project.videoUrl);
+                    setIsVideoPlaying(false);
+                  }}
+                  onLoadStart={() => console.log('Video load started')}
+                  onLoadedData={() => console.log('Video data loaded')}
+                  onCanPlay={() => console.log('Video can play')}
+                >
+                  <source src={project.videoUrl} type="video/mp4" />
+                  動画を読み込めませんでした。ファイルが存在しない可能性があります。
+                </video>
+              )
             ) : (
               <div 
                 className="relative w-full h-full bg-cover bg-center rounded-lg overflow-hidden cursor-pointer group"
@@ -118,7 +132,7 @@ export default function ProjectDetailContent({ id }: { id: string }) {
               >
                 <div className="flex items-center gap-3 mb-6">
                   <span className="px-4 py-2 bg-primary-500/20 text-primary-400 rounded-full text-sm font-medium">
-                    {project.category.name}
+                    {project.category?.name || project.gallerySection || 'その他'}
                   </span>
                   {project.featured && (
                     <span className="px-4 py-2 bg-yellow-500/20 text-yellow-400 rounded-full text-sm font-medium">
@@ -132,7 +146,7 @@ export default function ProjectDetailContent({ id }: { id: string }) {
                 </h1>
 
                 <p className="text-xl text-gray-300 leading-relaxed mb-8 whitespace-pre-line">
-                  {project.description}
+                  {linkifyText(project.description)}
                 </p>
 
                 {/* Extended Description */}
@@ -203,7 +217,7 @@ export default function ProjectDetailContent({ id }: { id: string }) {
 
                 <div className="mt-8 pt-6 border-t border-gray-700">
                   <Link
-                    href="/#contact"
+                    href="/contact"
                     className="w-full bg-primary-500 text-white py-3 px-6 rounded-lg hover:bg-primary-600 transition-colors font-medium flex items-center justify-center gap-2"
                   >
                     <ExternalLink className="w-4 h-4" />
@@ -253,7 +267,7 @@ export default function ProjectDetailContent({ id }: { id: string }) {
                           {relatedProject.title}
                         </h3>
                         <p className="text-gray-400 text-sm">
-                          {relatedProject.year} • {relatedProject.category.name}
+                          {relatedProject.year} • {relatedProject.category?.name || relatedProject.gallerySection || 'その他'}
                         </p>
                       </div>
                     </Link>

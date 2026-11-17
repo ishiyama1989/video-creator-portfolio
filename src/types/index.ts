@@ -3,12 +3,14 @@ export interface Project {
   title: string;
   description: string;
   videoUrl: string;
+  youtubeId?: string;
   thumbnailUrl: string;
-  category: Category;
+  category?: Category;
   tags: string[];
   client?: string;
   year: number;
   featured?: boolean;
+  gallerySection?: string;
 }
 
 export interface Category {

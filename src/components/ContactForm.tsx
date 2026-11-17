@@ -20,10 +20,10 @@ export default function ContactFormComponent() {
 
   const projectTypes = [
     'ドローン空撮撮影・編集',
-    'ミュージックビデオ撮影・編集',
     'イベント撮影・編集',
-    'ウェディング動画撮影・編集',
     'プロモーション動画撮影・編集',
+    'YouTube撮影・編集',
+    'ショート動画撮影・編集',
     'LP作成',
     'その他',
   ];

@@ -5,13 +5,15 @@ export const categories: Category[] = [
   { id: '2', name: 'ミュージックビデオ', slug: 'music-video', description: 'アーティストのMV制作' },
   { id: '3', name: 'コーポレート', slug: 'corporate', description: '企業紹介・採用動画' },
   { id: '4', name: 'イベント', slug: 'event', description: 'イベント記録・ライブ映像' },
+  { id: '5', name: 'YouTube動画', slug: 'youtube-video', description: 'YouTubeチャンネル向け動画制作' },
+  { id: '6', name: 'ドローン空撮', slug: 'drone-aerial', description: 'FPVドローンによる空撮映像' },
 ];
 
 export const projects: Project[] = [
   {
     id: '1',
     title: '母から受け継いだ"おもてなしの心"',
-    description: '環富士山名物グルメグランプリ2022 金賞受賞作品\n富士河口湖町の名物グルメを紹介するプロモーション動画。',
+    description: '環富士山名物グルメグランプリ2022 金賞受賞作品\n富士河口湖町の名物グルメを紹介するプロモーション動画。\nhttps://ohagiyamotomochi.com/',
     videoUrl: '/videos/motomochi.mp4',
     thumbnailUrl: '/videos/motomochi.jpg',
     category: categories[0],
@@ -23,7 +25,7 @@ export const projects: Project[] = [
   {
     id: '2',
     title: '日本一硬い「吉田のうどん」',
-    description: '環富士山名物グルメグランプリ2023 4位入賞作品\n富士吉田市の名物グルメを紹介するプロモーション動画。',
+    description: '環富士山名物グルメグランプリ2023 4位入賞作品\n富士吉田市の名物グルメを紹介するプロモーション動画。\nhttps://www.instagram.com/shirasu_udon.fujiyoshida/',
     videoUrl: '/videos/yoshidaudon.mp4',
     thumbnailUrl: '/videos/yoshidaudon.jpg',
     category: categories[0],
@@ -34,13 +36,14 @@ export const projects: Project[] = [
   },
   {
     id: '3',
-    title: '企業採用動画「共に歩む未来」',
-    description: '成長企業の魅力と社員の想いを伝える採用動画。',
-    videoUrl: '/videos/河口湖2.mp4',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800',
-    category: categories[2],
-    tags: ['採用', '企業', 'インタビュー'],
-    client: 'Example Corporation',
+    title: '「おやじのグルメ」season１',
+    description: 'YouTube「かーくんちゃんねる」の立ち上げ、過去数十本の動画の撮影、編集を担当。 https://www.youtube.com/channel/UC2p0zmc3LlBtGtVrxibIBSA',
+    videoUrl: 'https://youtu.be/bVMq0LH31Wk',
+    youtubeId: 'bVMq0LH31Wk',
+    thumbnailUrl: '/videos/maxresdefault.jpeg',
+    category: categories[4],
+    tags: ['YouTube', 'グルメ', 'インタビュー'],
+    client: 'かーくんちゃんねる',
     year: 2023,
   },
   {
@@ -48,28 +51,42 @@ export const projects: Project[] = [
     title: 'FPVドローン空撮「富士山の絶景」',
     description: 'FPVドローンによる迫力ある富士山空撮映像。\n臨場感溢れる映像美をお楽しみください。',
     videoUrl: '/videos/kawaguchiko.mp4',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1605197788044-5a67c9c1fb4e?w=800',
-    category: categories[3],
-    tags: ['ドローン', '空撮', '富士山'],
-    client: '観光協会',
-    year: 2024,
+    thumbnailUrl: '/videos/kawaguchiko.jpg',
+    category: categories[5],
+    tags: ['FPVドローン','ドローン', '空撮', '富士山'],
+    client: '自主制作',
+    year: 2025,
     featured: true,
   },
   {
     id: '5',
-    title: 'ミュージックビデオ「夢の向こう側」',
-    description: 'アーティストの想いを映像で表現したMV作品。\n感動的なストーリーと美しい映像が融合。',
-    videoUrl: '/videos/kawaguchiko.mp4',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800',
-    category: categories[1],
-    tags: ['MV', '音楽', 'アーティスト'],
-    client: 'レコード会社',
-    year: 2024,
+    title: '「山中湖でワカサギ釣り！快適&楽しい」',
+    description: 'ももちゃんねる 山梨応援\nhttps://www.youtube.com/@YouTuber-ih8uc/videos',
+    videoUrl: 'https://youtu.be/js2o8N-YT-U',
+    youtubeId: 'js2o8N-YT-U',
+    thumbnailUrl: 'https://img.youtube.com/vi/js2o8N-YT-U/hqdefault.jpg',
+    category: categories[4],
+    tags: ['YouTube', '動画編集', '動画撮影'],
+    client: 'ももちゃんねる 山梨応援',
+    year: 2025,
+  },
+  {
+    id: '6',
+    title: 'ちゃぶ台盆地会議',
+    description: 'ディレクターとして企画・制作・配信を担当するビデオポッドキャスト。\n山梨の魅力や地域の文化について深く掘り下げる対談番組として継続配信中。地域活性化に貢献する情報発信を行っています。',
+    videoUrl: 'https://open.spotify.com/show/30TvT3LEA9QN41G6i9CYqY?si=JE0A09N2RxuWJ81lob-kdQ',
+    thumbnailUrl: '/videos/chabudai.jpg',
+    category: undefined,
+    tags: ['ビデオポッドキャスト', 'ディレクション', '企画制作', '配信'],
+    client: '自主制作',
+    year: 2025,
+    featured: false,
+    gallerySection: 'ビデオポッドキャスト',
   },
 ];
 
 export const profile: Profile = {
-  name: '石田麻也（いしだ　まや）',
+  name: 'Maya',
   title: '映像クリエイター',
   bio: '映像制作を通じて、地域の魅力や企業の想いを伝える動画コンテンツを制作しています。FPVドローンによる迫力ある空撮からYouTube動画編集まで、幅広い映像制作に対応いたします。',
   skills: [
@@ -78,28 +95,51 @@ export const profile: Profile = {
     'Vivecoding',
     'LP作成',
     'YouTube動画編集',
+    'SNS運用代行',
   ],
   experience: [
     {
-      title: 'シニア映像ディレクター',
-      company: '株式会社クリエイティブスタジオ',
-      period: '2020 - 現在',
-      description: '大手企業のブランディング動画やTVCMの制作を担当。チームリーダーとしてプロジェクト全体の管理も行う。',
-    },
-    {
       title: '映像クリエイター',
       company: 'フリーランス',
-      period: '2018 - 2020',
+      period: '2018 - 現在',
       description: 'ミュージックビデオやイベント映像の制作を中心に活動。多様なジャンルの映像制作に携わる。',
     },
   ],
   contact: {
-    email: 'contact@example.com',
-    social: [
-      { platform: 'YouTube', url: 'https://youtube.com/@example', icon: 'youtube' },
-      { platform: 'Instagram', url: 'https://instagram.com/example', icon: 'instagram' },
-      { platform: 'Twitter', url: 'https://twitter.com/example', icon: 'twitter' },
-    ],
+    email: 'mmyy03220302profuri@gmail.com',
+    social: [],
   },
-  avatarUrl: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400' as string,
+  avatarUrl: `/videos/DSC08718.jpeg?v=${Date.now()}` as string,
 };
+// 制作したWebサイト（BASEのHTML編集で作った販売サイト）
+export interface Website {
+  id: string;
+  name: string;
+  url: string;
+  description: string;
+  imageUrl?: string;
+  points: string[];
+}
+
+export const websites: Website[] = [
+  {
+    id: 'ishidafarm',
+    name: 'ISHIDA FARM',
+    url: 'https://ishidafarm.base.ec/',
+    description:
+      '山梨県笛吹市の家族経営の果樹園のオンラインショップ。デラウェア・すもも・桃を販売しています。\nBASEのHTML編集機能を使い、テンプレートにはない自由なデザインで、農園の想いが伝わるサイトに仕上げました。',
+    imageUrl:
+      'https://baseec-img-mng.akamaized.net/images/user/logo/8411bd70a674c8aa4b96206d8acc5f9c.png',
+    points: ['企画', 'デザイン', 'HTML/CSS編集', 'BASE構築'],
+  },
+  {
+    id: 'ishiyama-kousakusho',
+    name: 'いしやま工作所',
+    url: 'https://ikousakusho.base.shop/',
+    description:
+      'ステンドグラスや木工、3Dプリントなど、ジャンルにとらわれないハンドメイド作品のショップ。\nBASEのHTML編集で、作品番号やYouTube・Instagramへの導線など、作り手の顔が見えるオリジナルのページ構成にしました。',
+    imageUrl:
+      'https://baseec-img-mng.akamaized.net/images/user/logo/cf723cdfc86af8a718e46a6c8dacd72e.png',
+    points: ['企画', 'デザイン', 'HTML/CSS編集', 'BASE構築'],
+  },
+];

@@ -55,27 +55,82 @@ export default function Navigation() {
             : 'bg-transparent'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
-          <div className="flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-0 sm:px-0 py-3 sm:py-4 relative">
+          <div className="flex items-center justify-end">
             {/* Logo */}
             <Link
               href="/"
-              className="text-lg sm:text-xl md:text-2xl font-bold text-white hover:text-primary-400 transition-colors duration-300"
+              className="text-lg sm:text-xl md:text-2xl font-bold text-white hover:text-primary-400 transition-colors duration-300 absolute left-6 sm:left-8"
             >
-              VideoCreator
+              Contents Creator
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden md:flex items-center space-x-3 pr-4 sm:pr-6">
               {navItems.map((item) => (
-                <button
+                <motion.button
                   key={item.name}
                   onClick={() => handleNavClick(item.href)}
-                  className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors duration-300 text-sm font-medium"
+                  whileHover={{ 
+                    scale: 1.05,
+                    transition: { duration: 0.2 }
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  className="relative flex items-center gap-2 text-gray-300 hover:text-white transition-colors duration-300 text-sm font-medium group overflow-hidden"
                 >
-                  <item.icon className="w-4 h-4" />
-                  {item.name}
-                </button>
+                  {/* フィルムストリップ風背景エフェクト */}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-primary-500/10 to-transparent opacity-0 group-hover:opacity-100"
+                    initial={{ x: '-100%' }}
+                    whileHover={{ 
+                      x: '100%',
+                      transition: { duration: 0.6, ease: "easeInOut" }
+                    }}
+                  />
+                  
+                  {/* ビデオフレーム風ボーダー */}
+                  <motion.div
+                    className="absolute inset-0 border border-transparent group-hover:border-primary-400/30"
+                    whileHover={{
+                      borderColor: 'rgba(99, 102, 241, 0.5)',
+                      boxShadow: '0 0 10px rgba(99, 102, 241, 0.3)',
+                      transition: { duration: 0.3 }
+                    }}
+                  />
+
+                  {/* アイコンにカメラシャッター風アニメーション */}
+                  <motion.div
+                    whileHover={{ 
+                      scale: [1, 1.2, 1],
+                      rotateY: [0, 180, 360],
+                      transition: { duration: 0.8, ease: "easeInOut" }
+                    }}
+                    className="relative z-10"
+                  >
+                    <item.icon className="w-4 h-4" />
+                  </motion.div>
+
+                  {/* テキストにタイプライター風エフェクト */}
+                  <motion.span
+                    whileHover={{
+                      letterSpacing: '0.05em',
+                      transition: { duration: 0.3 }
+                    }}
+                    className="relative z-10"
+                  >
+                    {item.name}
+                  </motion.span>
+                  
+                  {/* プログレスバー風アンダーライン */}
+                  <motion.div
+                    className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-primary-400 to-purple-400"
+                    initial={{ width: 0 }}
+                    whileHover={{ 
+                      width: '100%',
+                      transition: { duration: 0.4, ease: "easeOut" }
+                    }}
+                  />
+                </motion.button>
               ))}
             </div>
 
@@ -108,11 +163,59 @@ export default function Navigation() {
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
+                    whileHover={{ 
+                      x: 15,
+                      transition: { type: "spring", stiffness: 300, damping: 20 }
+                    }}
+                    whileTap={{ scale: 0.98 }}
                     onClick={() => handleNavClick(item.href)}
-                    className="flex items-center gap-3 sm:gap-4 w-full text-left py-4 sm:py-6 text-gray-300 hover:text-white border-b border-gray-800 transition-colors duration-300"
+                    className="relative flex items-center gap-3 sm:gap-4 w-full text-left py-4 sm:py-6 text-gray-300 hover:text-white border-b border-gray-800 transition-colors duration-300 overflow-hidden"
                   >
-                    <item.icon className="w-4 h-4 sm:w-5 sm:h-5" />
-                    <span className="text-base sm:text-lg font-medium">{item.name}</span>
+                    {/* モバイル版フィルムストリップエフェクト */}
+                    <motion.div
+                      className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-primary-400 to-purple-400"
+                      initial={{ height: 0 }}
+                      whileHover={{ 
+                        height: '100%',
+                        transition: { duration: 0.4 }
+                      }}
+                    />
+                    
+                    {/* ビデオプレイエフェクト */}
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-primary-500/5 to-transparent opacity-0"
+                      whileHover={{ 
+                        opacity: 1,
+                        transition: { duration: 0.3 }
+                      }}
+                    />
+
+                    {/* カメラレンズ風ズームアニメーション */}
+                    <motion.div
+                      whileHover={{ 
+                        scale: [1, 1.3, 1.1],
+                        rotate: [0, 10, -10, 0],
+                        transition: { duration: 0.6, ease: "easeInOut" }
+                      }}
+                      className="relative z-10"
+                    >
+                      <item.icon className="w-4 h-4 sm:w-5 sm:h-5" />
+                    </motion.div>
+                    
+                    {/* テキストにグリッチエフェクト風 */}
+                    <motion.span 
+                      className="text-base sm:text-lg font-medium relative z-10"
+                      whileHover={{
+                        textShadow: [
+                          '0 0 0 transparent',
+                          '2px 0 0 #ff0000, -2px 0 0 #00ffff',
+                          '0 0 0 transparent'
+                        ],
+                        transition: { duration: 0.3, times: [0, 0.5, 1] }
+                      }}
+                    >
+                      {item.name}
+                    </motion.span>
                   </motion.button>
                 ))}
               </div>

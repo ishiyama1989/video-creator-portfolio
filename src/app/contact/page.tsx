@@ -83,10 +83,10 @@ export default function ContactPage() {
                       <div>
                         <h4 className="text-white font-medium mb-1">対応エリア</h4>
                         <p className="text-gray-300 text-sm">
-                          全国（リモート対応可）
+                          関東近県
                         </p>
                         <p className="text-gray-400 text-xs mt-1">
-                          関東圏は直接打ち合わせも可能
+                          直接打ち合わせ・撮影対応可能
                         </p>
                       </div>
                     </div>
@@ -138,10 +138,6 @@ export default function ContactPage() {
                 {
                   question: '修正は何回まで可能ですか？',
                   answer: '基本プランでは3回まで修正対応いたします。それ以上の修正が必要な場合は別途ご相談させていただきます。'
-                },
-                {
-                  question: '遠方でも対応可能ですか？',
-                  answer: 'はい、全国対応可能です。オンライン会議システムを活用し、遠方のクライアント様ともスムーズに制作を進めております。'
                 }
               ].map((faq, index) => (
                 <div key={index} className="bg-gray-900 rounded-lg p-6">
